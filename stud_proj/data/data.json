@@ -6,7 +6,7 @@
       "new": 11540,
       "old": 15300
     },
-    "image": "../images/item-1.png",
+    "image": "/stud_proj/images/item-1.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -18,12 +18,12 @@
   },
   {
     "id": 2,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Подвесная люстра Citilux Идальго CL434321",
     "price": {
       "new": 10540,
       "old": 17300
     },
-    "image": "../images/item-2.png",
+    "image": "/stud_proj/images/item-2.png",
     "availability": {
       "moscow": 0,
       "orenburg": 0,
@@ -35,12 +35,12 @@
   },
   {
     "id": 3,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Светодиодный светильник LED-панель 600x600",
     "price": {
       "new": 14555,
       "old": 22300
     },
-    "image": "../images/item-3.png",
+    "image": "/stud_proj/images/item-3.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -52,12 +52,12 @@
   },
   {
     "id": 4,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Ночник-светильник Eglo Nighlight LED",
     "price": {
       "new": 6540,
       "old": 10300
     },
-    "image": "../images/item-4.png",
+    "image": "/stud_proj/images/item-4.png",
     "availability": {
       "moscow": 0,
       "orenburg": 0,
@@ -69,12 +69,12 @@
   },
   {
     "id": 5,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Точечный светильник Gauss LED 5Вт",
     "price": {
       "new": 8540,
       "old": 12300
     },
-    "image": "../images/item-5.png",
+    "image": "/stud_proj/images/item-5.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -86,12 +86,12 @@
   },
   {
     "id": 6,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Хрустальная люстра Odeon Light Шаровидная",
     "price": {
       "new": 17540,
       "old": 27300
     },
-    "image": "../images/item-6.png",
+    "image": "/stud_proj/images/item-6.png",
     "availability": {
       "moscow": 15,
       "orenburg": 25,
@@ -103,12 +103,12 @@
   },
   {
     "id": 7,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Настенный бра Arte Lamp Loft 1 рожок",
     "price": {
       "new": 12540,
       "old": 16300
     },
-    "image": "../images/item-7.png",
+    "image": "/stud_proj/images/item-7.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -120,12 +120,12 @@
   },
   {
     "id": 8,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Современная люстра Maytoni MINI BLACK",
     "price": {
       "new": 12999,
       "old": 17300
     },
-    "image": "../images/item-8.png",
+    "image": "/stud_proj/images/item-8.png",
     "availability": {
       "moscow": 0,
       "orenburg": 0,
@@ -137,12 +137,12 @@
   },
   {
     "id": 9,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Спот со шнуром L9001 Navigator",
     "price": {
       "new": 18540,
       "old": 19800
     },
-    "image": "../images/item-9.png",
+    "image": "/stud_proj/images/item-9.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -154,12 +154,12 @@
   },
   {
     "id": 10,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Люстра-тарелка Eurosvet Панорама",
     "price": {
       "new": 12540,
       "old": 14300
     },
-    "image": "../images/item-10.png",
+    "image": "/stud_proj/images/item-10.png",
     "availability": {
       "moscow": 15,
       "orenburg": 112,
@@ -171,12 +171,12 @@
   },
   {
     "id": 11,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Потолочный светильник Favourite Модерн",
     "price": {
       "new": 10540,
       "old": 17300
     },
-    "image": "../images/item-11.png",
+    "image": "/stud_proj/images/item-11.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -188,12 +188,12 @@
   },
   {
     "id": 12,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "LED-лента светодиодная 12V 5м",
     "price": {
       "new": 11540,
       "old": 13300
     },
-    "image": "../images/item-12.png",
+    "image": "/stud_proj/images/item-12.png",
     "availability": {
       "moscow": 0,
       "orenburg": 0,
@@ -205,12 +205,12 @@
   },
   {
     "id": 13,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Трековая система Elektrostandard 3 метра",
     "price": {
       "new": 22540,
       "old": 32300
     },
-    "image": "../images/item-13.png",
+    "image": "/stud_proj/images/item-13.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -222,12 +222,12 @@
   },
   {
     "id": 14,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Карнизная LED-подсветка RGB",
     "price": {
       "new": 14540,
       "old": 15300
     },
-    "image": "../images/item-14.png",
+    "image": "/stud_proj/images/item-14.png",
     "availability": {
       "moscow": 15,
       "orenburg": 25,
@@ -239,12 +239,12 @@
   },
   {
     "id": 15,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Люстра с пультом Uniel Дистанционная",
     "price": {
       "new": 18540,
       "old": 25300
     },
-    "image": "../images/item-15.png",
+    "image": "/stud_proj/images/item-15.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -256,12 +256,12 @@
   },
   {
     "id": 16,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Настольная лампа Xiaomi Mi Desk Lamp",
     "price": {
       "new": 19540,
       "old": 24300
     },
-    "image": "../images/item-16.png",
+    "image": "/stud_proj/images/item-16.png",
     "availability": {
       "moscow": 15,
       "orenburg": 228,
@@ -273,12 +273,12 @@
   },
   {
     "id": 17,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Торшер напольный Maytoni Floor",
     "price": {
       "new": 8540,
       "old": 15300
     },
-    "image": "../images/item-1.png",
+    "image": "/stud_proj/images/item-1.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -290,12 +290,12 @@
   },
   {
     "id": 18,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Бра с выключателем Citilux Wall",
     "price": {
       "new": 6540,
       "old": 14300
     },
-    "image": "../images/item-2.png",
+    "image": "/stud_proj/images/item-2.png",
     "availability": {
       "moscow": 15,
       "orenburg": 25,
@@ -307,12 +307,12 @@
   },
   {
     "id": 19,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Влагозащищённый светильник для ванной",
     "price": {
       "new": 10540,
       "old": 18300
     },
-    "image": "../images/item-3.png",
+    "image": "/stud_proj/images/item-3.png",
     "availability": {
       "moscow": 10,
       "orenburg": 20,
@@ -324,12 +324,12 @@
   },
   {
     "id": 20,
-    "name": "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
+    "name": "Уличный прожектор Gauss IP65",
     "price": {
       "new": 12240,
       "old": 17800
     },
-    "image": "../images/item-4.png",
+    "image": "/stud_proj/images/item-4.png",
     "availability": {
       "moscow": 15,
       "orenburg": 25,

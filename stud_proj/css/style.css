@@ -91,7 +91,6 @@
 
 .swiper-backface-hidden .swiper-slide {
   transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -298,7 +297,8 @@
 .swiper-button-next svg, .swiper-button-prev svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transform-origin: center;
 }
 
@@ -414,7 +414,8 @@ button.swiper-pagination-bullet {
   padding: 0;
   box-shadow: none;
   -webkit-appearance: none;
-  appearance: none;
+  -moz-appearance: none;
+       appearance: none;
 }
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
@@ -574,7 +575,8 @@ button.swiper-pagination-bullet {
 .swiper-zoom-container > canvas, .swiper-zoom-container > img, .swiper-zoom-container > svg {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .swiper-slide-zoomed {
@@ -632,7 +634,6 @@ button.swiper-pagination-bullet {
 
 .swiper-cube .swiper-slide {
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 1;
   visibility: hidden;
@@ -686,7 +687,6 @@ button.swiper-pagination-bullet {
 
 .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-bottom, .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-left, .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-right, .swiper-cube .swiper-slide-shadow-cube.swiper-slide-shadow-top {
   z-index: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
@@ -696,7 +696,6 @@ button.swiper-pagination-bullet {
 
 .swiper-flip .swiper-slide {
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 1;
 }
@@ -711,12 +710,10 @@ button.swiper-pagination-bullet {
 
 .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-bottom, .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-left, .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-right, .swiper-flip .swiper-slide-shadow-flip.swiper-slide-shadow-top {
   z-index: 0;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .swiper-creative .swiper-slide {
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
   transition-property: transform, opacity, height;
@@ -728,7 +725,6 @@ button.swiper-pagination-bullet {
 
 .swiper-cards .swiper-slide {
   transform-origin: center bottom;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
 }
@@ -790,7 +786,6 @@ button.swiper-pagination-bullet {
 }
 
 .tippy-backdrop {
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background-color: #333;
   border-radius: 50%;
@@ -907,7 +902,8 @@ a {
 */
 abbr[title] {
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
   border-bottom: none; /* 1 */
 }
 
@@ -1201,7 +1197,8 @@ main {
 img {
   display: block;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 a {
@@ -1260,8 +1257,35 @@ button {
 .btn--icon {
   gap: 16px;
 }
+.btn--clear {
+  padding: 8px 10px;
+}
+.btn__count-wrap {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2px 0 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+.btn__count {
+  font-weight: 600;
+}
 .btn:disabled {
   opacity: 0.6;
+}
+
+.btn-close {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  height: 24px;
+  justify-content: center;
+  padding: 0;
+  width: 24px;
 }
 
 .header__top {
@@ -1281,6 +1305,7 @@ button {
   background-color: transparent;
   border: 1px solid #9BE198;
   border-radius: 6px;
+  outline: none;
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -1302,6 +1327,7 @@ button {
 .header__user-btn {
   background-color: transparent;
   border: none;
+  outline: none;
   padding: 0;
   display: flex;
   align-items: center;
@@ -1373,6 +1399,7 @@ button {
   background-color: transparent;
   border: none;
   display: flex;
+  outline: none;
   gap: 5px;
   padding: 0;
 }
@@ -1434,10 +1461,22 @@ button {
   transform: translateY(0);
   pointer-events: all;
 }
-.basket__empty-block {
-  text-align: center;
-  padding: 40px;
-  width: 366px;
+.basket__wrapper {
+  display: none;
+}
+.basket__wrapper--active {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.basket__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+.basket__title {
+  margin: 0;
 }
 .basket__list {
   display: flex;
@@ -1449,12 +1488,20 @@ button {
 }
 .basket__item {
   display: grid;
-  gap: 20px;
-  grid-template-columns: 60px 170px 76px 20px;
+  gap: 30px;
+  grid-template-columns: 60px 200px 76px 20px;
   align-items: center;
   font-size: 14px;
   font-weight: 500;
   line-height: 16.8px;
+}
+.basket__cost {
+  padding: 10px 0 0 0;
+}
+.basket__controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 .basket__close {
   padding: 0;
@@ -1478,8 +1525,19 @@ button {
 }
 .basket__img img {
   height: 60px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 60px;
+}
+.basket__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.basket__empty-block {
+  text-align: center;
+  padding: 40px;
+  width: 366px;
 }
 
 .breadcrumbs {
@@ -1558,16 +1616,6 @@ button {
   line-height: 26px;
   margin: 0;
 }
-.main-menu__close {
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  display: flex;
-  height: 24px;
-  justify-content: center;
-  padding: 0;
-  width: 24px;
-}
 .main-menu__list {
   display: flex;
   flex-direction: column;
@@ -1605,11 +1653,16 @@ button {
   margin: 0 0 80px 0;
   align-items: start;
 }
+.catalog__sort-search-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 40px;
+}
 .catalog__sort {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 40px;
 }
 .catalog__sort-text {
   font-size: 16px;
@@ -1622,6 +1675,7 @@ button {
   line-height: 22.4px;
   color: #9BE198;
   border: none;
+  outline: none;
 }
 .catalog__list {
   margin: 0 0 40px;
@@ -1661,6 +1715,10 @@ button {
 }
 .catalog__pagination-link:not(:disabled) {
   color: #000000;
+}
+.catalog__pagination-link.catalog__pagination-link--active {
+  color: #6FC76C;
+  font-weight: 900;
 }
 
 .catalog-form {
@@ -1839,7 +1897,8 @@ button {
 }
 .product-card__img {
   height: 436px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 290px;
   transform: scale(1.03);
 }
@@ -2167,8 +2226,12 @@ button {
   font-size: 18px;
   font-weight: 400;
   line-height: 25.2px;
+  outline: none;
   border-radius: 8px;
   border: 1px solid #A5A5A5;
+}
+.custom-input__field::-moz-placeholder {
+  color: #A5A5A5;
 }
 .custom-input__field::placeholder {
   color: #A5A5A5;
@@ -2335,4 +2398,63 @@ button {
   justify-content: center;
 }
 
-/*# sourceMappingURL=style.css.map */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #6FC76C;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  z-index: 9999;
+  animation: fadeInOut 2s ease;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+.favorite__btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.favorite__btn svg {
+  stroke: #999;
+  fill: none;
+  transition: all 0.2s ease;
+}
+.favorite__btn:hover svg {
+  stroke: #ff6b6b;
+  transform: scale(1.05);
+}
+.favorite__btn--active svg {
+  fill: #ff6b6b;
+  stroke: #ff6b6b;
+}/*# sourceMappingURL=style.css.map */

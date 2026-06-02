@@ -14,11 +14,17 @@
     align-items: start;
   }
 
+  &__sort-search-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+
   &__sort {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
+    gap: 15px; 
   }
 
   &__sort-text {
@@ -33,6 +39,7 @@
     line-height: 22.4px;
     color: #9BE198;
     border: none;
+    outline: none;
   }
 
   &__list {
@@ -51,7 +58,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    gap: 10px;
+    gap: 10px; 
   }
 
   &__pagination-link {
@@ -77,6 +84,11 @@
 
     &:not(:disabled) {
       color: $color-black;
+    }
+
+    &.catalog__pagination-link--active {
+      color: $color-fern;
+      font-weight: 900;
     }
   }
 }
