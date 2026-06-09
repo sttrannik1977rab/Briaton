@@ -51,6 +51,10 @@
     gap: 40px;
   }
 
+  &__item {
+    display: flex;
+  }
+
   &__pagination {
     display: flex;
     align-items: center;

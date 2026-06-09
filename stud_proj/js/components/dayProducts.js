@@ -62,12 +62,27 @@ function initDayProductsSwiper() {
 
         slidesPerView: 4,
         spaceBetween: 20,
-        loop: true,
+        loop: false,
         
         navigation: {
 
             nextEl: '.day-products__navigation-btn--next',
             prevEl: '.day-products__navigation-btn--prev',
+            disabledClass: 'swiper-button-disabled',
+        },
+
+        // Обновляем состояние кнопок при достижении края
+        on: {
+
+            reachEnd: function() {
+                // Кнопка "далее" автоматически получит класс disabled
+                console.log('Достигнут конец');
+            },
+            
+            reachBeginning: function() {
+                // Кнопка "назад" автоматически получит класс disabled
+                console.log('Достигнуто начало');
+            }
         },
         
         breakpoints: {

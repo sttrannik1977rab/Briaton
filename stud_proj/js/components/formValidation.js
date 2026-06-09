@@ -77,7 +77,7 @@ export function initFormValidate() {
         try {
             
             // Отправляем данные на сервер
-            const response = await fetch('https://httpbin.org/post', {
+            const response = await fetch('https://httttttpbin.org/post', {
 
                 method: 'POST',
                 headers: { 
@@ -97,13 +97,15 @@ export function initFormValidate() {
             } else {
 
                 // Ошибка сервера
-                showModal('error', 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+                showModal('error', `Ошибка сервера: ${response.status}`);
             }
 
         } catch (error) {
 
             // Ошибка сети или другой проблемы
             console.error('error', 'Не удалось отправить заявку. Проверьте подключение к интернету и попробуйте снова.');  
+            
+            showModal('error', 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
         }
     });
 

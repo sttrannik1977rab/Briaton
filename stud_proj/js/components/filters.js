@@ -14,6 +14,8 @@ export function setCurrentCity(city) {
 
     // После смены города, обновляем список товаров
     filterAndSortProducts();
+
+    updateCategoriesCount();
 }
 
 // Функция получения текущего города
@@ -29,7 +31,10 @@ export async function updateCategoriesCount() {
 
         // Получаем все товары
         const products = await productsAPI.getAllProducts();
-        
+
+        // Получаем текущий город
+        const city = currentCity;
+        console.log('updateCategoriesCount, город:', city); // проверка
         // Создаем объект хранения количества товаров по категориям
         const categoriesCount = {
 
@@ -42,13 +47,36 @@ export async function updateCategoriesCount() {
 
         // Подсчитываем количество товаров в каждой категории
         products.forEach(product => {
-            
-            // product.type - массив категорий товаров
-            product.type.forEach(category => {
+            // Проверяем наличие в выбранном городе
+            const availability = product.availability;
+            // Задаем переменную, которая показывает, есть ли товар в наличии в выбранном городе
+            let hasStock = false; // по умолчанию считаем, что товара нет
+            // Проверяем в зависимости от города
+            if (city === 'Москва') {
+
+                hasStock = (availability?.moscow || 0) > 0;  // есть ли товар в Москве?
+
+            } else if (city === 'Оренбург') {
+
+                hasStock = (availability?.orenburg || 0) > 0; // есть ли товар в Оренбурге?
+
+            } else if (city === 'Санкт-Петербург') {
                 
-                if (categoriesCount[category] !== undefined) categoriesCount[category]++;
-            });
+                hasStock = (availability?.saintPetersburg || 0) > 0; // есть ли в СПб?
+            }
+
+            // Если товар есть в наличии и у него есть категории
+            if (hasStock && product.type && Array.isArray(product.type)) {
+
+                // product.type - массив категорий товаров
+                product.type.forEach(category => {
+                    
+                    if (categoriesCount[category] !== undefined) categoriesCount[category]++;
+                });
+            }
         });
+
+        console.log('Подсчитано:', categoriesCount); // проверка
 
         // Обновляем отображение количества на странице
         // Object.entries превращает объект в массив пар [ключ, значение]
