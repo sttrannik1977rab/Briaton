@@ -62,6 +62,10 @@
   &__link {
     width: 210px;
     position: relative;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
 
     &::before {
       content: "";

@@ -1,6 +1,22 @@
 // Ключ для хранения избранного в LocalStorage
 const STORAGE_KEY = 'favorites'; 
 
+// Функция обновления счётчика избранного в хедере
+export function updateFavoritesCounter() {
+    const counterElement = document.querySelector('#favorites-counter');
+    if (!counterElement) return;
+
+    const favorites = getFavorites();
+    const count = favorites.length;
+
+    if (count > 0) {
+        counterElement.textContent = count;
+        counterElement.style.display = 'flex';
+    } else {
+       counterElement.style.display = 'none'; 
+    }
+}
+
 // Функция получения избранного из LocalStorage
 export function getFavorites() {
 
@@ -29,6 +45,7 @@ export function addToFavorites(productId) {
     }
 
     updateFavoritesIcons();  // обновляем иконки на странице
+    updateFavoritesCounter();
 }
 
 // Функция удаления товара из избранного
@@ -41,6 +58,7 @@ export function removeFromFavorites(productId) {
     saveFavorites(favorites); // перезаписываем
 
     updateFavoritesIcons();  // обновляем иконки на странице
+    updateFavoritesCounter();
 }
 
 // Функция переключения избранного (добавить/удалить)
@@ -56,6 +74,15 @@ export function toggleFavorite(productId) {
 
         addToFavorites(productId);
     } 
+
+    // Если мы на странице избранного — перерисовываем
+    const favoritesList = document.querySelector('#favorites-list');
+    if (favoritesList) {
+        // Динамический импорт, чтобы не было циклической зависимости
+        import('./favorites-page.js').then(module => {
+            module.renderFavoritesPage();
+        });
+    }
 }
 
 // Проверить, в избранном ли товар
@@ -107,20 +134,21 @@ export function initFavoritesDelegation() {
     });
 }
 
-// // Функция получения полных данных избранных товаров
-// export async function getFavoriteProducts() {
+// Функция получения полных данных избранных товаров
+export async function getFavoriteProducts() {
 
-//     const favorites = getFavorites();
-//     const { productsAPI } = await import('../services/productsAPI.js');
-//     const allProducts = await productsAPI.getAllProducts();
+    const favorites = getFavorites();
+    const { productsAPI } = await import('../services/productsAPI.js');
+    const allProducts = await productsAPI.getAllProducts();
     
-//     return allProducts.filter(product => favorites.includes(product.id));
-// }
+    return allProducts.filter(product => favorites.includes(product.id));
+}
 
 // Функция инициализации (вызывается в main.js)
 export function initFavorites() {
 
     initFavoritesDelegation();
     updateFavoritesIcons();
+    updateFavoritesCounter(); // обновляем счётчик при загрузке
 }
 

@@ -1,18 +1,20 @@
 .custom-checkbox {
   $root: &;
 
-&__field:checked {
-  + #{$root}__label {
-    #{$root}__icon {
-      opacity: 1;
-    }
+  &__field:checked {
+    + #{$root}__label {
+      #{$root}__icon {
+        opacity: 1;
+      }
 
-    &::before  {
-      background-color: $color-granny-smith-apple;
-      border-color: $color-granny-smith-apple;
+      &::before  {
+        background-color: $color-granny-smith-apple;
+        border-color: $color-granny-smith-apple;
+
+
+      }
     }
   }
-}
 
   &__label {
     display: flex;
@@ -23,12 +25,7 @@
     line-height: 22.4px;
     position: relative;
     cursor: pointer;
-    transition: opacity $transition;
-
-    &:hover,
-    &:focus-visible {
-      opacity: 0.7;
-    }
+    transition: opacity $transition, color $transition;
 
     &::before {
       content: "";
@@ -42,11 +39,27 @@
       transform: translateY(-50%);
       transition: border-color $transition, background-color $transition;
     }
+
+    &:hover,
+    &:focus-visible {
+      opacity: 1;
+      color: $color-fern; 
+      
+      &:before {
+        border-color: $color-fern;
+      }
+
+      .custom-checkbox__count {
+        color: $color-fern;
+        transition: color $transition;
+      }
+    } 
   }
 
   &__count {
     color: $color-dark-gray;
   }
+
 
   &__icon {
     position: absolute;

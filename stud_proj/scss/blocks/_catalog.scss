@@ -40,6 +40,13 @@
     color: #9BE198;
     border: none;
     outline: none;
+    cursor: pointer;
+    transition: color $transition, opacity $transition;
+
+    &:hover,
+    &:focus {
+      color: $color-dark-gray;
+    }
   }
 
   &__list {

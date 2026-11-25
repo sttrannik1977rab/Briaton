@@ -19,7 +19,7 @@
 				<use xlink:href="images/sprite.svg#icon-logo"></use>
 				</svg>
 			</a>
-			<button class="header__catalog-btn" type="button">
+			<button class="header__catalog-btn btn btn--border" type="button">
 				<svg class="header__logo" width="24" height="24" aria-hidden="true">
 				<use xlink:href="images/sprite.svg#icon-menu"></use>
 				</svg>
@@ -54,7 +54,16 @@
 			<!-- User list -->
 			<ul class="header__user-list">
 				<li class="header__user-item">
-					<button class="header__user-btn" type="button" id="user-basket">
+					<a href="favorites.html" class="header__user-btn btn btn--transparent" id="user-favorites">
+						<span class="header__user-text">Избранное</span>
+						<svg class="header__user-icon" width="24" height="24" aria-hidden="true">
+                        	<use xlink:href="images/sprite.svg#icon-heart"></use>
+                    	</svg>
+						<span class="header__user-count" id="favorites-counter" style="display: none;">0</span>
+					</a>
+				</li>
+				<li class="header__user-item">
+					<button class="header__user-btn btn btn--transparent" type="button" id="user-basket">
 						<span class="header__user-text">Корзина</span>
 						<svg class="header__user-icon" width="24" height="24" aria-hidden="true">
 							<use xlink:href="images/sprite.svg#icon-basket"></use>
@@ -64,10 +73,9 @@
 
 					<!-- Basket -->
 					<div class="header__basket basket"></div>
-					
 				</li>
 				<li class="header__user-item">
-					<button class="header__user-btn" type="button" id="user-entrance">
+					<button class="header__user-btn btn btn--transparent" type="button" id="user-entrance">
 						<span class="header__user-text">Войти</span>
 						<svg class="header__user-icon" width="24" height="24" aria-hidden="true">
 						<use xlink:href="images/sprite.svg#icon-user"></use>
@@ -185,7 +193,7 @@
 		<h1 class="catalog__title">Светильники</h1>
 		<div class="catalog__wrapper">
 			<form action="#" method="get" class="catalog-form">
-			<button class="catalog-form__reset" type="reset">
+			<button class="catalog-form__reset btn btn--border" type="reset">
 				<svg width="24" height="24" aria-hidden="true">
 				<use xlink:href="images/sprite.svg#icon-filter"></use>
 				</svg>
@@ -350,7 +358,7 @@
 						<use xlink:href="images/sprite.svg#icon-basket"></use>
 						</svg>
 					</a>
-					<a href="#" class="product-card__link btn btn--secondary">
+					<a href="#" class="product-card__link btn btn--border">
 						<span class="btn__text">Подробнее</span>
 					</a>
 					</div>
@@ -510,7 +518,7 @@
 						<label for="email" class="custom-input__label">Ваша почта</label>
 						<input type="email" class="custom-input__field" id="email" placeholder="example@example.com">
 					</div>
-					<button class="questions__btn btn btn--big" type="submit">Отправить заявку</button>
+					<button class="questions__btn btn" type="submit">Отправить заявку</button>
 				</div>
 				<div class="custom-checkbox">
 					<input class="visually-hidden custom-checkbox__field" id="agree" type="checkbox" name="pendant">

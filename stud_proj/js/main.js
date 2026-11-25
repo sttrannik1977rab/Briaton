@@ -8,6 +8,7 @@ import { initFormValidate } from './components/formValidation.js';
 import { initTooltips, updateTooltips } from './components/tooltip.js';
 import { initSearch } from './components/search.js';
 import { initFavorites } from './components/favorites.js';
+import { renderFavoritesPage } from './components/favorites-page.js';
 
 window.addEventListener('DOMContentLoaded', async () => {
 
@@ -32,93 +33,107 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         // Инициализируем избранное
         initFavorites(); 
-        
-        //Вызываем все checkbox-элементы
-        const checkboxes = document.querySelectorAll('.custom-checkbox__field');
 
-        // Вешаем на них обработчики событий
-        checkboxes.forEach(checkbox => {
+        // Проверяем, какая страница открыта
+        const isFavoritesPage = document.querySelector('#favorites-list');
 
-            checkbox.addEventListener('change', () => {
-                
-                filterAndSortProducts(); // фильтруем при изменении
-
-                // Обновляем тултипы
-                setTimeout(() => updateTooltips(), 100);
-            });
-        });
-
-        // Вызываем все radio-кнопки
-        const radioButtons = document.querySelectorAll('.custom-radio__field');
-
-        // Вешаем на них обработчики событий
-        radioButtons.forEach(radio => {
+        if (isFavoritesPage) {
+            // СТРАНИЦА ИЗБРАННОГО
+            await renderFavoritesPage();
+        } else {
+            // СТРАНИЦА КАТАЛОГА
+            await renderProducts();
+            await updateCategoriesCount();
+            initSearch();
+            initTooltips();
             
-            radio.addEventListener('change', () => {
-                
-               filterAndSortProducts(); // сортируем при изменении 
+            //Вызываем все checkbox-элементы
+            const checkboxes = document.querySelectorAll('.custom-checkbox__field');
 
-               // Обновляем тултипы
-                setTimeout(() => updateTooltips(), 100);
-            });
-        });
+            // Вешаем на них обработчики событий
+            checkboxes.forEach(checkbox => {
 
-        // Вызываем select-элемент
-        const sortSelect = document.querySelector('.catalog__sort-select');
-
-        if (sortSelect) {
-
-            //Вешаем на него обработчик событий
-            sortSelect.addEventListener('change', () => {
-                
-                filterAndSortProducts(); 
-
-                // Обновляем тултипы
-                setTimeout(() => updateTooltips(), 100);
-            });
-        }
-        
-        // Кнопка сброса фильтров
-        const resetBtn = document.querySelector('.catalog-form__reset'); // вызываем элемент кнопки
-
-        // Если элемент существует, вешаем на эту кнопку обработчик события
-        if (resetBtn) {
-
-            resetBtn.addEventListener('click', () => {
-                
-                // Снимаем все отметки
-                checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
                     
-                    checkbox.checked = false;
+                    filterAndSortProducts(); // фильтруем при изменении
+
+                    // Обновляем тултипы
+                    setTimeout(() => updateTooltips(), 100);
                 });
+            });
 
-                // Ставим радио "Все"
-                const allItemsRadio = document.querySelector('#all-item');
-                if (allItemsRadio) allItemsRadio.checked = true;
+            // Вызываем все radio-кнопки
+            const radioButtons = document.querySelectorAll('.custom-radio__field');
 
-                // Сбрасываем сортировку на значение по умолчанию
-                if (sortSelect) sortSelect.value = 'rating-max';
-
-                // Вызываем без параметра все товары
-                filterAndSortProducts();
+            // Вешаем на них обработчики событий
+            radioButtons.forEach(radio => {
+                
+                radio.addEventListener('change', () => {
+                    
+                filterAndSortProducts(); // сортируем при изменении 
 
                 // Обновляем тултипы
-                setTimeout(() => updateTooltips(), 100);
+                    setTimeout(() => updateTooltips(), 100);
+                });
             });
+
+            // Вызываем select-элемент
+            const sortSelect = document.querySelector('.catalog__sort-select');
+
+            if (sortSelect) {
+
+                //Вешаем на него обработчик событий
+                sortSelect.addEventListener('change', () => {
+                    
+                    filterAndSortProducts(); 
+
+                    // Обновляем тултипы
+                    setTimeout(() => updateTooltips(), 100);
+                });
+            }
+            
+            // Кнопка сброса фильтров
+            const resetBtn = document.querySelector('.catalog-form__reset'); // вызываем элемент кнопки
+
+            // Если элемент существует, вешаем на эту кнопку обработчик события
+            if (resetBtn) {
+
+                resetBtn.addEventListener('click', () => {
+                    
+                    // Снимаем все отметки
+                    checkboxes.forEach(checkbox => {
+                        
+                        checkbox.checked = false;
+                    });
+
+                    // Ставим радио "Все"
+                    const allItemsRadio = document.querySelector('#all-item');
+                    if (allItemsRadio) allItemsRadio.checked = true;
+
+                    // Сбрасываем сортировку на значение по умолчанию
+                    if (sortSelect) sortSelect.value = 'rating-max';
+
+                    // Вызываем без параметра все товары
+                    filterAndSortProducts();
+
+                    // Обновляем тултипы
+                    setTimeout(() => updateTooltips(), 100);
+                });
+            }
+
+            // Иницилизируем аккардеон
+            initFaqAccodion();
+
+            // Иницилизируем блок "Товары дня"
+            renderDayProducts();
+
+            // Инициализируем блок с валидацией
+            initFormValidate();
+
+            // Инициализируем функцию поиска
+            initSearch();
+
         }
-        
-        // Иницилизируем аккардеон
-        initFaqAccodion();
-
-        // Иницилизируем блок "Товары дня"
-        renderDayProducts();
-
-        // Инициализируем блок с валидацией
-        initFormValidate();
-
-        // Инициализируем функцию поиска
-        initSearch();
-
     } catch(error) {
 
         console.error('Ошибка инициализации:', error);

@@ -1,0 +1,7 @@
+{
+  "name": "stud-proj",
+  "version": "1.0.0",
+  "scripts": {
+    "watch": "npx sass --watch scss/style.scss css/style.css"
+  }
+}

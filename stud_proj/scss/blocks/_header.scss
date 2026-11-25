@@ -16,15 +16,9 @@
   }
 
   &__catalog-btn {
-    background-color: transparent;
-    border: 1px solid $color-granny-smith-apple;
-    border-radius: 6px;
-    outline: none;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
     gap: 10px;
     margin: 0 40px 0 0;
+    padding: 10px 20px;
   }
 
   &__catalog-text {
@@ -37,33 +31,58 @@
     display: flex;
     padding: 0;
     list-style: none;
-    gap: 20px;
+    gap: 25px;
     position: relative;
   }
 
   &__user-btn {
-    background-color: transparent;
-    border: none;
-    outline: none;
+    position: relative;
+    gap: 5px;
     padding: 0;
-    display: flex;
-    align-items: center;
     font-size: 12px;
     line-height: 16.8px;
-    gap: 5px;
-    position: relative;
+    color: $color-black;                 
+    transition: color $transition; 
 
-    svg {
-      height: 24px;
-      width: 24px;
+    &[href] {
+      text-decoration: none;
+      color: inherit;
+
+      .header__user-icon {
+        fill: none;
+        stroke: currentColor;
+        transition: all 0.2s ease;
+      }
+
+      .header__user-count {
+        right: -18px;
+        background-color: $color-light-red; 
+      }
+
+      &:hover,
+      &:focus-visible {
+        color: $color-light-red;
+      } 
     }
+    
+    &:hover,
+    &:focus-visible {
+      color: $color-fern;
+      opacity: 0.7; 
+      
+      .header__user-count {
+        color: $color-white;
+      }
+    } 
+  }
+
+  &__user-icon {
+    height: 24px;
+    width: 24px; 
+    color: $color-black;    
   }
 
   &__user-count {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: $color-granny-smith-apple;
     position: absolute;
     top: -5px;
     right: -13px;
@@ -71,12 +90,16 @@
     align-items: center;
     justify-content: center;
     border: 2px solid $color-white;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: $color-fern; 
   }
 
   &__bottom {
-    padding: 18px 0;
     display: flex;
     align-items: center;
+    padding: 18px 0;
   }
 
   &__nav-list {
@@ -92,6 +115,13 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 22.4px;
+    transition: color $transition, opacity $transition;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+      color: $color-fern;
+    }
   }
 
   &__contacts {
@@ -102,11 +132,22 @@
   }
 
   &__btn {
+    padding: 12px;
     width: 170px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
   }
 
   &__phone {
     font-size: 14px;
     line-height: 19.6px;
+    transition: color $transition, opacity $transition;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+      color: $color-fern;
+    }
   }
 }
