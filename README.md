@@ -14,7 +14,7 @@
   - [Tippy.js](https://atomiks.github.io/tippyjs/) + [Popper.js](https://popper.js.org/) — подключены, но в текущей реализации тултипы самописные (см. «Известные особенности»)
 
 ## Структура проекта
-
+```
 stud-proj/
 ├── catalog.html              # Страница каталога
 ├── favorites.html            # Страница избранного
@@ -94,6 +94,7 @@ stud-proj/
 │       ├── popprjs.min.js
 │       └── tippy.min.js
 └── package.json
+```
 
 ## Запуск проекта
 
